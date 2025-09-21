@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code × Ninja 10</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0f0f0f, #1a1a1a);
+      overflow-x: hidden;
+    }
+    .glass {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glow {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    .terminal {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #111;
+      color: #0f0;
+      padding: 20px;
+      font-family: monospace;
+      border: 2px solid #0f0;
+      z-index: 50;
+    }
+    .katana {
+      animation: slash 1s ease-in-out forwards;
+      transform-origin: center;
+    }
+    @keyframes slash {
+      0% { transform: scale(0) rotate(0deg); opacity: 0; }
+      100% { transform: scale(1) rotate(45deg); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Background Audio -->
+  <audio autoplay loop muted id="bg-audio">
+    <source src="https://files.catbox.moe/9gk3xj.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center min-h-screen px-6 text-center relative">
+    <h1 class="text-6xl font-bold text-cyan-400 glow mb-4 tracking-wide">Code × Ninja 10</h1>
+    <p class="text-xl text-gray-300 max-w-xl mb-6 italic">Precision. Power. Discipline. The ultimate coding dojo experience.</p>
+
+    <!-- Katana SVG Animation -->
+    <svg class="katana w-16 h-16 text-cyan-400 mb-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M3 3l18 18M21 3L3 21" />
+    </svg>
+
+    <!-- Glass Card -->
+    <div class="glass p-6 rounded-xl shadow-xl max-w-md">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">🗓️ Event Details</h2>
+      <ul class="text-left space-y-2 text-gray-200">
+        <li><strong>Date:</strong> October 10, 2025</li>
+        <li><strong>Time:</strong> 6 PM – 9 PM</li>
+        <li><strong>Venue:</strong> SRM IST – Paari G Block</li>
+        <li><strong>Theme:</strong> Code. Combat. Clarity.</li>
+      </ul>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="#" class="mt-10 px-8 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-full text-white font-bold transition transform hover:scale-105 shadow-lg">Enter the Dojo</a>
+
+    <!-- QR Code -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://rudi-rocks.github.io/code-katana-poster" alt="QR Code" class="mt-8 opacity-80 hover:opacity-100 transition" />
+
+    <!-- Terminal Easter Egg -->
+    <div id="terminal" class="terminal">
+      <p>Welcome, Ninja.</p>
+      <p>Your mind is sharp. Your code is sharper.</p>
+      <p>– Rudi</p>
+    </div>
+  </section>
+
+  <!-- Easter Egg Script -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key === 'k') {
+        const terminal = document.getElementById('terminal');
+        terminal.style.display = terminal.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>
